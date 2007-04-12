@@ -1,0 +1,48 @@
+Name:		nautilus-python
+Summary:        Python bindings for GNOME 2's nautilus
+Version:        0.4.3
+Release: %mkrel 3
+Source:		http://ftp.gnome.org/pub/GNOME/sources/nautilus-python/%{name}-%{version}.tar.bz2
+URL: http://www.gnome.org
+License:        LGPL
+Group:          Development/Python
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
+
+Requires:	gnome-python-gconf
+
+BuildRequires:  pygtk2.0-devel
+BuildRequires:  gnome-python
+BuildRequires:  gnome-python-gnomevfs >= 2.12.0
+BuildRequires:  python-devel
+BuildRequires:  nautilus-devel >= 2.8
+Provides: python-nautilus
+Obsoletes: python-nautilus
+
+%description
+These are unstable bindings for the nautilus extension library
+introduced in Gnome 2.6.
+
+%prep
+%setup -q -n %{name}-%{version}
+
+%build
+%configure2_5x
+%make
+
+%install
+rm -rf $RPM_BUILD_ROOT installed-docs
+%makeinstall NAUTILUS_LIBDIR=$RPM_BUILD_ROOT%{_libdir}
+find $RPM_BUILD_ROOT -name '*.la' -exec rm {} \;
+mv %buildroot%_datadir/doc/%name installed-docs
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(-,root,root,-)
+%doc AUTHORS ChangeLog NEWS installed-docs/*
+%{_libdir}/nautilus-python
+%{_libdir}/nautilus/extensions-1.0/*
+%{_libdir}/pkgconfig/nautilus-python.pc
+
+
