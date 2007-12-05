@@ -1,7 +1,7 @@
 Name:		nautilus-python
 Summary:        Python bindings for GNOME 2's nautilus
 Version:        0.4.3
-Release: %mkrel 3
+Release: %mkrel 4
 Source:		http://ftp.gnome.org/pub/GNOME/sources/nautilus-python/%{name}-%{version}.tar.bz2
 URL: http://www.gnome.org
 License:        LGPL
@@ -9,9 +9,9 @@ Group:          Development/Python
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 Requires:	gnome-python-gconf
-
+Requires:	gnome-python-gnomevfs
 BuildRequires:  pygtk2.0-devel
-BuildRequires:  gnome-python
+BuildRequires:  gnome-python-devel
 BuildRequires:  gnome-python-gnomevfs >= 2.12.0
 BuildRequires:  python-devel
 BuildRequires:  nautilus-devel >= 2.8
