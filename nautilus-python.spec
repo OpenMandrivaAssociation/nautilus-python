@@ -6,6 +6,7 @@ Source:		http://ftp.gnome.org/pub/GNOME/sources/nautilus-python/%{name}-%{versio
 URL: http://www.gnome.org
 License:        LGPL
 Group:          Development/Python
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 Requires:	gnome-python-gconf
 Requires:	gnome-python-gnomevfs
