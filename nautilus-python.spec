@@ -1,11 +1,10 @@
 Name:		nautilus-python
 Summary:        Python bindings for GNOME 2's nautilus
-Version:        0.5.0
-Release: %mkrel 5
+Version:        0.5.1
+Release: %mkrel 1
 Source:		http://ftp.gnome.org/pub/GNOME/sources/nautilus-python/%{name}-%{version}.tar.bz2
-Patch: nautilus-python-0.5.0-nautilus-extensions-dir.patch
 URL: http://www.gnome.org
-License:        LGPL
+License:        GPLv2+ and LGPLv2+
 Group:          Development/Python
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
@@ -25,7 +24,6 @@ introduced in Gnome 2.6.
 
 %prep
 %setup -q -n %{name}-%{version}
-%patch -p1
 
 %build
 %configure2_5x
@@ -33,7 +31,7 @@ introduced in Gnome 2.6.
 
 %install
 rm -rf $RPM_BUILD_ROOT installed-docs
-%makeinstall NAUTILUS_EXTENSION_DIR=$RPM_BUILD_ROOT%{_libdir}/nautilus/extensions-2.0 NAUTILUS_LIBDIR=%buildroot%_libdir
+%makeinstall_std
 find $RPM_BUILD_ROOT -name '*.la' -exec rm {} \;
 mv %buildroot%_datadir/doc/%name installed-docs
 
