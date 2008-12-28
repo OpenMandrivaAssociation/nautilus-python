@@ -15,6 +15,7 @@ BuildRequires:  gnome-python-devel
 BuildRequires:  gnome-python-gnomevfs >= 2.12.0
 BuildRequires:  python-devel
 BuildRequires:  nautilus-devel >= 2.8
+BuildRequires:	eel-devel
 Provides: python-nautilus
 Obsoletes: python-nautilus
 
