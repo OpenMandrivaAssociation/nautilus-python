@@ -1,11 +1,9 @@
 Name:		nautilus-python
 Summary:        Python bindings for GNOME 2's nautilus
-Version:        0.6.0
+Version:        0.6.1
 Release: %mkrel 1
 Source:		http://ftp.gnome.org/pub/GNOME/sources/nautilus-python/%{name}-%{version}.tar.bz2
 #gw hardcode libpython soname for dlopening to libpython2.6.so.1.0
-#https://qa.mandriva.com/show_bug.cgi?id=39416
-Patch2:		nautilus-python-0.6.0-fix-libpython-soname.patch
 URL: http://www.gnome.org
 License:        GPLv2+ and LGPLv2+
 Group:          Development/Python
@@ -26,7 +24,6 @@ introduced in Gnome 2.6.
 
 %prep
 %setup -q -n %{name}-%{version} 
-%patch2 -p1
 
 %build
 %ifarch x86_64
