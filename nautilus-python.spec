@@ -1,6 +1,6 @@
 Name:		nautilus-python
 Summary:        Python bindings for GNOME 2's nautilus
-Version:        0.7.3
+Version:        1.0
 Release: %mkrel 1
 Source:		http://ftp.gnome.org/pub/GNOME/sources/nautilus-python/%{name}-%{version}.tar.bz2
 #gw hardcode libpython soname for dlopening to libpython2.6.so.1.0
@@ -46,7 +46,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc AUTHORS ChangeLog NEWS installed-docs/*
-%{_libdir}/nautilus-python
 %{_libdir}/nautilus/extensions-2.0/*
 %{_libdir}/pkgconfig/nautilus-python.pc
 
