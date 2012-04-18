@@ -38,7 +38,7 @@ rm -rf $RPM_BUILD_ROOT installed-docs
 find $RPM_BUILD_ROOT -name '*.la' -exec rm {} \;
 mv %buildroot%_datadir/doc/%name installed-docs
 
-mkdir $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions-2.0/python
+mkdir $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions-3.0/python
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -46,7 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc AUTHORS ChangeLog NEWS installed-docs/*
-%{_libdir}/nautilus/extensions-2.0/*
+%{_libdir}/nautilus/extensions-3.0/*
 %{_libdir}/pkgconfig/nautilus-python.pc
 
 
