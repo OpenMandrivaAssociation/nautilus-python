@@ -13,7 +13,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 Requires:	gnome-python-gconf
 BuildRequires:	pkgconfig(python2)
-BuildRequires:	pkgconfig(pygobject-3.0) >= 3.0.0
+BuildRequires:	pkgconfig(pygobject-2.0)
 BuildRequires:	pkgconfig(libnautilus-extension) >= 2.32
 Provides: python-nautilus
 Obsoletes: python-nautilus
