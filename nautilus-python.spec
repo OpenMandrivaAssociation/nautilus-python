@@ -12,9 +12,10 @@ Group:          Development/Python
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 Requires:	gnome-python-gconf
-BuildRequires:	pkgconfig(python2)
-BuildRequires:	pkgconfig(pygobject-2.0)
+BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(pygobject-3.0)
 BuildRequires:	pkgconfig(libnautilus-extension) >= 2.32
+BuildRequires:  pkgconfig(gtk-doc)
 Provides: python-nautilus
 Obsoletes: python-nautilus
 
