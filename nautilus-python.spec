@@ -1,8 +1,8 @@
 %define _disable_ld_no_undefined 1
 
 Name:		nautilus-python
-Summary:        Python bindings for GNOME 2's nautilus
-Version:        1.2
+Summary:        Python bindings for GNOME nautilus
+Version:        1.2.2
 Release:        1
 Source:		http://ftp.gnome.org/pub/GNOME/sources/nautilus-python/%{name}-%{version}.tar.xz
 #gw hardcode libpython soname for dlopening to libpython2.6.so.1.0
@@ -30,12 +30,12 @@ introduced in Gnome 2.6.
 %ifarch x86_64
 export CFLAGS="%optflags -fPIC"
 %endif
-%configure2_5x
-%make
+%configure
+%make_build
 
 %install
 rm -rf $RPM_BUILD_ROOT installed-docs
-%makeinstall_std
+%make_install
 find $RPM_BUILD_ROOT -name '*.la' -exec rm {} \;
 mv %buildroot%_datadir/doc/%name installed-docs
 
