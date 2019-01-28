@@ -3,7 +3,7 @@
 Name:		nautilus-python
 Summary:        Python bindings for GNOME nautilus
 Version:        1.2.2
-Release:        1
+Release:        2
 Source:		http://ftp.gnome.org/pub/GNOME/sources/nautilus-python/%{name}-%{version}.tar.xz
 #gw hardcode libpython soname for dlopening to libpython2.6.so.1.0
 URL: http://www.gnome.org
@@ -11,11 +11,13 @@ License:        GPLv2+ and LGPLv2+
 Group:          Development/Python
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
-Requires:	gnome-python-gconf
 BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(pygobject-3.0)
 BuildRequires:	pkgconfig(libnautilus-extension) >= 2.32
 BuildRequires:  pkgconfig(gtk-doc)
+#Not required anymore (also not available for armv7) but make it recommend to pass tests.
+Recommends: gnome-python-gconf
+
 Provides: python-nautilus
 Obsoletes: python-nautilus
 
