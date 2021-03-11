@@ -3,7 +3,7 @@
 Name:		nautilus-python
 Summary:        Python bindings for GNOME nautilus
 Version:        1.2.3
-Release:        1
+Release:        2
 Source:		http://ftp.gnome.org/pub/GNOME/sources/nautilus-python/%{name}-%{version}.tar.xz
 #gw hardcode libpython soname for dlopening to libpython2.6.so.1.0
 URL: http://www.gnome.org
