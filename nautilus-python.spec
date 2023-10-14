@@ -34,8 +34,6 @@ introduced in Gnome 2.6.
 %meson_install
 
 %files
-%defattr(-,root,root,-)
-%doc AUTHORS ChangeLog NEWS installed-docs/*
 #{_libdir}/nautilus/extensions-3.0/*
 #{_libdir}/pkgconfig/nautilus-python.pc
 
