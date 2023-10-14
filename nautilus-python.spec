@@ -2,21 +2,19 @@
 
 Name:		nautilus-python
 Summary:        Python bindings for GNOME nautilus
-Version:        1.2.3
-Release:        2
+Version:        4.0
+Release:        1
 Source:		http://ftp.gnome.org/pub/GNOME/sources/nautilus-python/%{name}-%{version}.tar.xz
 #gw hardcode libpython soname for dlopening to libpython2.6.so.1.0
 URL: http://www.gnome.org
 License:        GPLv2+ and LGPLv2+
 Group:          Development/Python
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
+BuildRequires:  meson
 BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(pygobject-3.0)
-BuildRequires:	pkgconfig(libnautilus-extension) >= 2.32
+BuildRequires:	pkgconfig(libnautilus-extension-4)
 BuildRequires:  pkgconfig(gtk-doc)
-#Not required anymore (also not available for armv7) but make it recommend to pass tests.
-Recommends: gnome-python-gconf
 
 Provides: python-nautilus
 Obsoletes: python-nautilus
@@ -29,30 +27,17 @@ introduced in Gnome 2.6.
 %setup -q -n %{name}-%{version} 
 
 %build
-%ifarch x86_64
-export CFLAGS="%optflags -fPIC"
-%endif
-%configure
-%make_build
+%meson
+%meson_build
 
 %install
-rm -rf $RPM_BUILD_ROOT installed-docs
-%make_install
-find $RPM_BUILD_ROOT -name '*.la' -exec rm {} \;
-mv %buildroot%_datadir/doc/%name installed-docs
-
-mkdir $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions-3.0/python
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+%meson_install
 
 %files
 %defattr(-,root,root,-)
 %doc AUTHORS ChangeLog NEWS installed-docs/*
-%{_libdir}/nautilus/extensions-3.0/*
-%{_libdir}/pkgconfig/nautilus-python.pc
-
-
+#{_libdir}/nautilus/extensions-3.0/*
+#{_libdir}/pkgconfig/nautilus-python.pc
 
 
 %changelog
