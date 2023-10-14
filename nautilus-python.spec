@@ -4,9 +4,8 @@ Name:		nautilus-python
 Summary:        Python bindings for GNOME nautilus
 Version:        4.0
 Release:        1
-Source:		http://ftp.gnome.org/pub/GNOME/sources/nautilus-python/%{name}-%{version}.tar.xz
-#gw hardcode libpython soname for dlopening to libpython2.6.so.1.0
-URL: http://www.gnome.org
+Source:		https://ftp.gnome.org/pub/GNOME/sources/nautilus-python/%{name}-%{version}.tar.xz
+URL: https://www.gnome.org
 License:        GPLv2+ and LGPLv2+
 Group:          Development/Python
 
@@ -16,6 +15,7 @@ BuildRequires:	pkgconfig(pygobject-3.0)
 BuildRequires:	pkgconfig(libnautilus-extension-4)
 BuildRequires:  pkgconfig(gtk-doc)
 
+Requires: nautilus
 Provides: python-nautilus
 Obsoletes: python-nautilus
 
@@ -34,8 +34,10 @@ introduced in Gnome 2.6.
 %meson_install
 
 %files
-#{_libdir}/nautilus/extensions-3.0/*
-#{_libdir}/pkgconfig/nautilus-python.pc
+%doc %{_datadir}/doc/nautilus-python/
+%doc %{_datadir}/gtk-doc/html/nautilus-python/
+%{_libdir}/nautilus/extensions-4/libnautilus-python.so
+%{_datadir}/pkgconfig/nautilus-python.pc
 
 
 %changelog
