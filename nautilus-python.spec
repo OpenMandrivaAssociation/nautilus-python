@@ -2,7 +2,7 @@
 
 Name:		nautilus-python
 Summary:        Python bindings for GNOME nautilus
-Version:        4.0
+Version:        4.0.1
 Release:        1
 Source:		https://ftp.gnome.org/pub/GNOME/sources/nautilus-python/%{name}-%{version}.tar.xz
 URL: https://www.gnome.org
